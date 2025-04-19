@@ -6,24 +6,24 @@ import toast from 'react-hot-toast';
 export function AddClientModal({ isOpen, onClose, onAdd }) {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
-    status: 'active',
+    address: '',
+    phone: '',
+    responsible: '',
+    notes: '',
     avatar: 'https://cdn.usegalileo.ai/stability/117a7a12-7704-4917-9139-4a3f76c42e78.png'
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email) {
-      toast.error('Please fill in all required fields');
+    if (!formData.name || !formData.phone) {
+      toast.error('Por favor, preencha os campos obrigatórios');
       return;
     }
 
     onAdd({
       ...formData,
       id: Date.now(),
-      spent: 0,
-      lastOrder: new Date().toISOString().split('T')[0]
     });
     
     toast.success('Cliente adicionado com sucesso!');
@@ -59,7 +59,7 @@ export function AddClientModal({ isOpen, onClose, onAdd }) {
               <div className="p-6 space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Name *
+                    Nome *
                   </label>
                   <input
                     type="text"
@@ -72,32 +72,56 @@ export function AddClientModal({ isOpen, onClose, onAdd }) {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Email *
+                  <label htmlFor="address" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Endereço
                   </label>
                   <input
-                    type="email"
-                    id="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    type="text"
+                    id="address"
+                    value={formData.address}
+                    onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                    className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-dark-hover text-gray-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Telefone *
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-dark-hover text-gray-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary"
                     required
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="status" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    Status
+                  <label htmlFor="responsible" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Responsável
                   </label>
-                  <select
-                    id="status"
-                    value={formData.status}
-                    onChange={(e) => setFormData({ ...formData, status: e.target.value })}
+                  <input
+                    type="text"
+                    id="responsible"
+                    value={formData.responsible}
+                    onChange={(e) => setFormData({ ...formData, responsible: e.target.value })}
                     className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-dark-hover text-gray-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                  >
-                    <option value="active">Active</option>
-                    <option value="inactive">Inactive</option>
-                  </select>
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="notes" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Observações
+                  </label>
+                  <textarea
+                    id="notes"
+                    value={formData.notes}
+                    onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                    rows={3}
+                    className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-dark-hover text-gray-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                  />
                 </div>
               </div>
 
@@ -107,13 +131,13 @@ export function AddClientModal({ isOpen, onClose, onAdd }) {
                   onClick={onClose}
                   className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-dark-hover rounded-lg transition-colors"
                 >
-                  Cancel
+                  Cancelar
                 </button>
                 <button
                   type="submit"
                   className="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary-light rounded-lg transition-colors"
                 >
-                  Add Client
+                  Adicionar Cliente
                 </button>
               </div>
             </form>

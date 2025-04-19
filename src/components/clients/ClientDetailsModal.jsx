@@ -1,68 +1,11 @@
 import React from 'react';
 import { Dialog } from '@headlessui/react';
-import { format } from 'date-fns';
 import { Card } from '../ui/Card';
 
 const DetailItem = ({ label, value }) => (
   <div className="space-y-1">
     <dt className="text-sm text-gray-500 dark:text-gray-400">{label}</dt>
     <dd className="text-sm font-medium text-gray-900 dark:text-white">{value}</dd>
-  </div>
-);
-
-const OrderHistory = () => (
-  <div className="mt-6">
-    <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-4">Recent Orders</h4>
-    <div className="space-y-4">
-      {[
-        { id: 1, date: '2023-12-20', amount: 350, status: 'completed' },
-        { id: 2, date: '2023-12-15', amount: 220, status: 'completed' },
-        { id: 3, date: '2023-12-10', amount: 180, status: 'completed' },
-      ].map((order) => (
-        <div 
-          key={order.id}
-          className="flex items-center justify-between p-4 rounded-lg bg-gray-50 dark:bg-dark-hover"
-        >
-          <div className="space-y-1">
-            <p className="text-sm font-medium text-gray-900 dark:text-white">
-              Order #{order.id}
-            </p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              {format(new Date(order.date), 'MMM d, yyyy')}
-            </p>
-          </div>
-          <div className="text-right">
-            <p className="text-sm font-medium text-gray-900 dark:text-white">
-              ${order.amount}
-            </p>
-            <p className="text-xs text-emerald-600 dark:text-emerald-400 capitalize">
-              {order.status}
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-);
-
-const ActivityLog = () => (
-  <div className="mt-6">
-    <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-4">Recent Activity</h4>
-    <div className="space-y-4">
-      {[
-        { action: 'Viewed product X', time: '2 hours ago' },
-        { action: 'Updated shipping address', time: '1 day ago' },
-        { action: 'Contacted support', time: '3 days ago' },
-      ].map((activity, index) => (
-        <div 
-          key={index}
-          className="flex items-center justify-between py-2"
-        >
-          <p className="text-sm text-gray-900 dark:text-white">{activity.action}</p>
-          <p className="text-sm text-gray-500 dark:text-gray-400">{activity.time}</p>
-        </div>
-      ))}
-    </div>
   </div>
 );
 
@@ -92,7 +35,7 @@ export function ClientDetailsModal({ client, onClose }) {
                   <Dialog.Title className="text-lg font-semibold text-gray-900 dark:text-white">
                     {client.name}
                   </Dialog.Title>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{client.email}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{client.phone}</p>
                 </div>
               </div>
               <button
@@ -110,36 +53,26 @@ export function ClientDetailsModal({ client, onClose }) {
               {/* Client Details */}
               <div className="grid grid-cols-2 gap-6">
                 <DetailItem 
-                  label="Status" 
-                  value={
-                    <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
-                      client.status === 'active'
-                        ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400'
-                        : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
-                    }`}>
-                      {client.status}
-                    </span>
-                  }
+                  label="Endereço" 
+                  value={client.address || 'Não informado'}
                 />
                 <DetailItem 
-                  label="Total Spent" 
-                  value={`$${client.spent.toLocaleString()}`}
+                  label="Telefone" 
+                  value={client.phone}
                 />
                 <DetailItem 
-                  label="Last Order" 
-                  value={format(new Date(client.lastOrder), 'MMM d, yyyy')}
-                />
-                <DetailItem 
-                  label="Client Since" 
-                  value={format(new Date('2023-01-15'), 'MMM d, yyyy')}
+                  label="Responsável" 
+                  value={client.responsible || 'Não informado'}
                 />
               </div>
 
-              {/* Order History */}
-              <OrderHistory />
-
-              {/* Activity Log */}
-              <ActivityLog />
+              {/* Notes */}
+              <div className="mt-6">
+                <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-2">Observações</h4>
+                <p className="text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-dark-hover p-4 rounded-lg">
+                  {client.notes || 'Nenhuma observação registrada.'}
+                </p>
+              </div>
             </div>
 
             {/* Footer */}
@@ -148,12 +81,12 @@ export function ClientDetailsModal({ client, onClose }) {
                 onClick={onClose}
                 className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-dark-hover rounded-lg transition-colors"
               >
-                Close
+                Fechar
               </button>
               <button
                 className="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary-light rounded-lg transition-colors"
               >
-                Edit Client
+                Editar Cliente
               </button>
             </div>
           </Card>
