@@ -8,18 +8,18 @@ import { AddClientModal } from './AddClientModal';
 const initialClients = [
   {
     id: 1,
-    name: 'Alice Freeman',
+    name: 'Lar Nossa Senhora dos Navegantes',
     phone: '(11) 98765-4321',
-    address: 'Rua das Flores, 123',
+    address: 'Rua das Flores, 123 - Capão da Canoa/RS',
     responsible: 'João Silva',
     notes: 'Cliente preferencial',
     avatar: 'https://cdn.usegalileo.ai/stability/117a7a12-7704-4917-9139-4a3f76c42e78.png'
   },
   {
     id: 2,
-    name: 'Bob Smith',
+    name: 'Escolinha Amigos do Mar',
     phone: '(11) 91234-5678',
-    address: 'Av. Principal, 456',
+    address: 'Av. Principal, 456 - Tramandaí/RS',
     responsible: 'Maria Santos',
     notes: 'Atendimento especial',
     avatar: 'https://cdn.usegalileo.ai/stability/d4e7d763-28f3-4af2-bc57-a26db12c522b.png'
