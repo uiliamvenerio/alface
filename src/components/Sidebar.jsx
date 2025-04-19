@@ -8,15 +8,14 @@ import clsx from 'clsx';
  */
 const menuItems = [
   { id: 'dashboard', icon: House, text: 'Home' },
-  { id: 'customers', icon: UsersThree, text: 'Customers' },
-  { id: 'conversations', icon: ChatDots, text: 'Conversations' },
+  { id: 'clients', icon: UsersThree, text: 'Clients' },
   { id: 'campaigns', icon: Megaphone, text: 'Campaigns' },
   { id: 'reporting', icon: ChartPie, text: 'Reporting' }
 ];
 
 /**
- * Quick access customer item component
- * Displays customer avatar, name, last seen status, and amount
+ * Quick access client item component
+ * Displays client avatar, name, last seen status, and amount
  */
 const QuickAccessItem = ({ image, name, lastSeen, amount, onClick }) => (
   <button
@@ -94,28 +93,28 @@ export default function Sidebar({ isOpen, onClose, currentPage, onMenuItemClick 
                 name="Alice Freeman"
                 lastSeen="2 days ago"
                 amount={200}
-                onClick={() => onMenuItemClick('customers')}
+                onClick={() => onMenuItemClick('clients')}
               />
               <QuickAccessItem
                 image="https://cdn.usegalileo.ai/stability/d4e7d763-28f3-4af2-bc57-a26db12c522b.png"
                 name="Bob Smith"
                 lastSeen="5 days ago"
                 amount={100}
-                onClick={() => onMenuItemClick('customers')}
+                onClick={() => onMenuItemClick('clients')}
               />
               <QuickAccessItem
                 image="https://cdn.usegalileo.ai/stability/e9fdb59b-64bb-4239-8e52-f71e0cfb538e.png"
                 name="Charlie Brown"
                 lastSeen="7 days ago"
                 amount={50}
-                onClick={() => onMenuItemClick('customers')}
+                onClick={() => onMenuItemClick('clients')}
               />
               <QuickAccessItem
                 image="https://cdn.usegalileo.ai/stability/1af7ccee-eb75-4af5-b80e-ee2ec64a79ef.png"
                 name="David Jones"
                 lastSeen="10 days ago"
                 amount={300}
-                onClick={() => onMenuItemClick('customers')}
+                onClick={() => onMenuItemClick('clients')}
               />
             </div>
           </div>

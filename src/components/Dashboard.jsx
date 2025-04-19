@@ -3,7 +3,7 @@ import { StatCard } from './dashboard/StatCard';
 import { ActivityFeed } from './dashboard/ActivityFeed';
 import { TaskList } from './dashboard/TaskList';
 import { RevenueChart } from './dashboard/graphs/RevenueChart';
-import { CustomerChart } from './dashboard/graphs/CustomerChart';
+import { ClientChart } from './dashboard/graphs/ClientChart';
 
 export default function Dashboard() {
   return (
@@ -15,15 +15,15 @@ export default function Dashboard() {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
           <StatCard title="Total revenue" value="$1,500" change="+5%" />
-          <StatCard title="Active customers" value="20" change="+5%" />
-          <StatCard title="New customers" value="5" change="+5%" />
+          <StatCard title="Clientes Ativos" value="20" change="+5%" />
+          <StatCard title="Novos Clientes" value="5" change="+5%" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-4">
           {/* Main content - 2 columns */}
           <div className="lg:col-span-2 space-y-4">
             <RevenueChart />
-            <CustomerChart />
+            <ClientChart />
           </div>
           
           {/* Sidebar - 1 column */}

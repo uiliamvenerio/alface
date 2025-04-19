@@ -3,8 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import { Header } from './components/ui/Header';
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
-import { CustomersPage } from './components/customers/CustomersPage';
-import { ConversationsPage } from './components/conversations/ConversationsPage';
+import { ClientsPage } from './components/clients/ClientsPage';
 import { CampaignsPage } from './components/campaigns/CampaignsPage';
 import { ReportingPage } from './components/reporting/ReportingPage';
 import { ProfilePage } from './components/profile/ProfilePage';
@@ -39,10 +38,8 @@ export default function App() {
     switch (currentPage) {
       case 'dashboard':
         return <Dashboard />;
-      case 'customers':
-        return <CustomersPage />;
-      case 'conversations':
-        return <ConversationsPage />;
+      case 'clients':
+        return <ClientsPage />;
       case 'campaigns':
         return <CampaignsPage />;
       case 'reporting':

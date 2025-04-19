@@ -3,7 +3,7 @@ import { Dialog } from '@headlessui/react';
 import { Card } from '../ui/Card';
 import toast from 'react-hot-toast';
 
-export function AddCustomerModal({ isOpen, onClose, onAdd }) {
+export function AddClientModal({ isOpen, onClose, onAdd }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,7 +26,7 @@ export function AddCustomerModal({ isOpen, onClose, onAdd }) {
       lastOrder: new Date().toISOString().split('T')[0]
     });
     
-    toast.success('Customer added successfully');
+    toast.success('Cliente adicionado com sucesso!');
     onClose();
   };
 
