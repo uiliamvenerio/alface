@@ -19,7 +19,7 @@ const messageSchema = new mongoose.Schema({
 const conversationSchema = new mongoose.Schema({
   client: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Customer',
+    ref: 'Client',
     required: true
   },
   messages: [messageSchema],

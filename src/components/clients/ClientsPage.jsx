@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Card, CardHeader, CardContent } from '../ui/Card';
 import { Button } from '../ui/Button';
-import { CustomerFilters } from './CustomerFilters';
-import { CustomerTable } from './CustomerTable';
-import { AddCustomerModal } from './AddCustomerModal';
+import { ClientFilters } from './ClientFilters';
+import { ClientTable } from './ClientTable';
+import { AddClientModal } from './AddClientModal';
 
 const initialClients = [
   {
@@ -53,8 +53,8 @@ export function ClientsPage() {
     sortBy: 'name'
   });
 
-  const handleAddCustomer = (newCustomer) => {
-    setClients([...clients, newCustomer]);
+  const handleAddClient = (newClient) => {
+    setClients([...clients, newClient]);
   };
 
   const filteredClients = clients.filter(client => {
@@ -86,26 +86,26 @@ export function ClientsPage() {
         <div className="flex flex-wrap items-center justify-between gap-4 p-4">
           <h1 className="text-gray-900 dark:text-white text-2xl md:text-3xl font-bold">Clients</h1>
           <Button onClick={() => setIsAddModalOpen(true)}>
-            Add Customer
+            Add Client
           </Button>
         </div>
 
         <div className="p-4">
           <Card>
             <CardHeader>
-              <CustomerFilters filters={filters} onChange={setFilters} />
+              <ClientFilters filters={filters} onChange={setFilters} />
             </CardHeader>
             <CardContent>
-              <CustomerTable clients={filteredClients} />
+              <ClientTable clients={filteredClients} />
             </CardContent>
           </Card>
         </div>
       </div>
 
-      <AddCustomerModal
+      <AddClientModal
         isOpen={isAddModalOpen}
         onClose={() => setIsAddModalOpen(false)}
-        onAdd={handleAddCustomer}
+        onAdd={handleAddClient}
       />
     </main>
   );

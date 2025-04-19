@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function CustomerFilters({ filters, onChange }) {
+export function ClientFilters({ filters, onChange }) {
   return (
     <div className="flex flex-wrap items-center gap-4">
       <div className="flex-1 min-w-[200px]">

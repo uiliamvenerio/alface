@@ -1,9 +1,9 @@
 import React from 'react';
 import { format } from 'date-fns';
-import { CustomerDetailsModal } from './CustomerDetailsModal';
+import { ClientDetailsModal } from './ClientDetailsModal';
 
-export function CustomerTable({ clients }) {
-  const [selectedCustomer, setSelectedCustomer] = React.useState(null);
+export function ClientTable({ clients }) {
+  const [selectedClient, setSelectedClient] = React.useState(null);
 
   return (
     <>
@@ -11,7 +11,7 @@ export function CustomerTable({ clients }) {
         <table className="w-full min-w-[800px]">
           <thead>
             <tr className="border-b border-gray-100 dark:border-gray-800">
-              <th className="text-left py-3 px-4 text-sm font-medium text-gray-500 dark:text-gray-400">Customer</th>
+              <th className="text-left py-3 px-4 text-sm font-medium text-gray-500 dark:text-gray-400">Client</th>
               <th className="text-left py-3 px-4 text-sm font-medium text-gray-500 dark:text-gray-400">Status</th>
               <th className="text-left py-3 px-4 text-sm font-medium text-gray-500 dark:text-gray-400">Total Spent</th>
               <th className="text-left py-3 px-4 text-sm font-medium text-gray-500 dark:text-gray-400">Last Order</th>
@@ -56,7 +56,7 @@ export function CustomerTable({ clients }) {
                 </td>
                 <td className="py-3 px-4 text-right">
                   <button 
-                    onClick={() => setSelectedCustomer(client)}
+                    onClick={() => setSelectedClient(client)}
                     className="text-primary hover:text-primary-light text-sm font-medium"
                   >
                     View Details
@@ -68,9 +68,9 @@ export function CustomerTable({ clients }) {
         </table>
       </div>
 
-      <CustomerDetailsModal
-        client={selectedCustomer}
-        onClose={() => setSelectedCustomer(null)}
+      <ClientDetailsModal
+        client={selectedClient}
+        onClose={() => setSelectedClient(null)}
       />
     </>
   );

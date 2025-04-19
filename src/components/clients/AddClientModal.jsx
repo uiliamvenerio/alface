@@ -43,7 +43,7 @@ export function AddClientModal({ isOpen, onClose, onAdd }) {
           <Card>
             <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-gray-800">
               <Dialog.Title className="text-lg font-semibold text-gray-900 dark:text-white">
-                Add New Customer
+                Adicionar Novo Cliente
               </Dialog.Title>
               <button
                 onClick={onClose}
@@ -113,7 +113,7 @@ export function AddClientModal({ isOpen, onClose, onAdd }) {
                   type="submit"
                   className="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary-light rounded-lg transition-colors"
                 >
-                  Add Customer
+                  Add Client
                 </button>
               </div>
             </form>

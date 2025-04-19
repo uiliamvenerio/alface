@@ -39,7 +39,7 @@ const integrations = [
   {
     id: 'zendesk',
     name: 'Zendesk',
-    description: 'Customer support ticket integration and tracking',
+    description: 'Client support ticket integration and tracking',
     connected: false,
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">

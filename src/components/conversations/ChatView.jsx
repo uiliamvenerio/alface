@@ -3,24 +3,24 @@ import { format } from 'date-fns';
 import clsx from 'clsx';
 
 function ChatMessage({ message, isConsecutive }) {
-  const isCustomer = message.type === 'client';
+  const isClient = message.type === 'client';
   
   return (
     <div className={clsx(
       'flex gap-3',
-      isCustomer ? 'justify-start' : 'justify-end',
+      isClient ? 'justify-start' : 'justify-end',
       isConsecutive ? 'mt-1' : 'mt-4'
     )}>
       <div className={clsx(
         'max-w-[70%] rounded-2xl px-4 py-2',
-        isCustomer 
+        isClient 
           ? 'bg-gray-100 dark:bg-dark-hover' 
           : 'bg-primary text-white'
       )}>
         <p className="text-sm whitespace-pre-wrap">{message.text}</p>
         <p className={clsx(
           'text-xs mt-1',
-          isCustomer ? 'text-gray-500 dark:text-gray-400' : 'text-white/80'
+          isClient ? 'text-gray-500 dark:text-gray-400' : 'text-white/80'
         )}>
           {format(new Date(message.timestamp), 'HH:mm')}
         </p>

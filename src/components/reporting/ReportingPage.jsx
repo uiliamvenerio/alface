@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card, CardHeader, CardContent } from '../ui/Card';
 import { RevenueOverview } from './graphs/RevenueOverview';
-import { CustomerMetrics } from './graphs/CustomerMetrics';
+import { ClientMetrics } from './graphs/ClientMetrics';
 import { CampaignPerformance } from './graphs/CampaignPerformance';
 import { SalesBreakdown } from './graphs/SalesBreakdown';
 import { DateRangePicker } from './DateRangePicker';
@@ -28,13 +28,13 @@ export function ReportingPage() {
             </CardContent>
           </Card>
 
-          {/* Customer Metrics */}
+          {/* Client Metrics */}
           <Card>
             <CardHeader>
-              <h2 className="text-gray-900 dark:text-white text-lg font-semibold">Customer Metrics</h2>
+              <h2 className="text-gray-900 dark:text-white text-lg font-semibold">Client Metrics</h2>
             </CardHeader>
             <CardContent>
-              <CustomerMetrics dateRange={dateRange} />
+              <ClientMetrics dateRange={dateRange} />
             </CardContent>
           </Card>
 

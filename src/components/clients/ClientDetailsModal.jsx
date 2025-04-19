@@ -66,7 +66,7 @@ const ActivityLog = () => (
   </div>
 );
 
-export function CustomerDetailsModal({ client, onClose }) {
+export function ClientDetailsModal({ client, onClose }) {
   if (!client) return null;
 
   return (
@@ -107,7 +107,7 @@ export function CustomerDetailsModal({ client, onClose }) {
 
             {/* Content */}
             <div className="p-6">
-              {/* Customer Details */}
+              {/* Client Details */}
               <div className="grid grid-cols-2 gap-6">
                 <DetailItem 
                   label="Status" 
@@ -130,7 +130,7 @@ export function CustomerDetailsModal({ client, onClose }) {
                   value={format(new Date(client.lastOrder), 'MMM d, yyyy')}
                 />
                 <DetailItem 
-                  label="Customer Since" 
+                  label="Client Since" 
                   value={format(new Date('2023-01-15'), 'MMM d, yyyy')}
                 />
               </div>
@@ -153,7 +153,7 @@ export function CustomerDetailsModal({ client, onClose }) {
               <button
                 className="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary-light rounded-lg transition-colors"
               >
-                Edit Customer
+                Edit Client
               </button>
             </div>
           </Card>

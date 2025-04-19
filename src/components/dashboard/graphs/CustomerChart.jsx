@@ -33,11 +33,11 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-export function CustomerChart() {
+export function ClientChart() {
   return (
     <Card>
       <CardHeader>
-        <h2 className="text-gray-900 dark:text-white text-lg font-semibold">Customer Activity</h2>
+        <h2 className="text-gray-900 dark:text-white text-lg font-semibold">Client Activity</h2>
       </CardHeader>
       <CardContent>
         <div className="h-[300px] mt-4">

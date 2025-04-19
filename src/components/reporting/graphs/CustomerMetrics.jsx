@@ -22,7 +22,7 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
-export function CustomerMetrics() {
+export function ClientMetrics() {
   return (
     <div className="h-[300px] mt-4">
       <ResponsiveContainer width="100%" height="100%">
