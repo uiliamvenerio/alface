@@ -16,20 +16,20 @@ export function ConversationsList({ conversations, selectedId, onSelect }) {
         >
           <div className="relative">
             <img
-              src={conversation.customer.avatar}
-              alt={conversation.customer.name}
+              src={conversation.client.avatar}
+              alt={conversation.client.name}
               className="w-10 h-10 rounded-full"
             />
             <span className={clsx(
               'absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-white dark:border-dark-card',
-              conversation.customer.status === 'online' ? 'bg-green-500' : 'bg-gray-400'
+              conversation.client.status === 'online' ? 'bg-green-500' : 'bg-gray-400'
             )} />
           </div>
           
           <div className="flex-1 min-w-0 text-left">
             <div className="flex items-center justify-between">
               <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
-                {conversation.customer.name}
+                {conversation.client.name}
               </p>
               <p className="text-xs text-gray-500 dark:text-gray-400">
                 {format(new Date(conversation.lastMessage.timestamp), 'HH:mm')}

@@ -5,7 +5,7 @@ import { CustomerFilters } from './CustomerFilters';
 import { CustomerTable } from './CustomerTable';
 import { AddCustomerModal } from './AddCustomerModal';
 
-const initialCustomers = [
+const initialClients = [
   {
     id: 1,
     name: 'Alice Freeman',
@@ -44,8 +44,8 @@ const initialCustomers = [
   }
 ];
 
-export function CustomersPage() {
-  const [customers, setCustomers] = useState(initialCustomers);
+export function ClientsPage() {
+  const [clients, setClients] = useState(initialClients);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [filters, setFilters] = useState({
     search: '',
@@ -54,18 +54,18 @@ export function CustomersPage() {
   });
 
   const handleAddCustomer = (newCustomer) => {
-    setCustomers([...customers, newCustomer]);
+    setClients([...clients, newCustomer]);
   };
 
-  const filteredCustomers = customers.filter(customer => {
-    if (filters.status !== 'all' && customer.status !== filters.status) {
+  const filteredClients = clients.filter(client => {
+    if (filters.status !== 'all' && client.status !== filters.status) {
       return false;
     }
     if (filters.search) {
       const search = filters.search.toLowerCase();
       return (
-        customer.name.toLowerCase().includes(search) ||
-        customer.email.toLowerCase().includes(search)
+        client.name.toLowerCase().includes(search) ||
+        client.email.toLowerCase().includes(search)
       );
     }
     return true;
@@ -84,7 +84,7 @@ export function CustomersPage() {
     <main className="flex-1 min-w-0 overflow-auto">
       <div className="max-w-[1440px] mx-auto animate-fade-in">
         <div className="flex flex-wrap items-center justify-between gap-4 p-4">
-          <h1 className="text-gray-900 dark:text-white text-2xl md:text-3xl font-bold">Customers</h1>
+          <h1 className="text-gray-900 dark:text-white text-2xl md:text-3xl font-bold">Clients</h1>
           <Button onClick={() => setIsAddModalOpen(true)}>
             Add Customer
           </Button>
@@ -96,7 +96,7 @@ export function CustomersPage() {
               <CustomerFilters filters={filters} onChange={setFilters} />
             </CardHeader>
             <CardContent>
-              <CustomerTable customers={filteredCustomers} />
+              <CustomerTable clients={filteredClients} />
             </CardContent>
           </Card>
         </div>

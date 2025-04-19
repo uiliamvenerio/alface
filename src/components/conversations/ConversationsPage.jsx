@@ -6,7 +6,7 @@ import { ChatView } from './ChatView';
 const initialConversations = [
   {
     id: 1,
-    customer: {
+    client: {
       id: 1,
       name: 'Alice Freeman',
       avatar: 'https://cdn.usegalileo.ai/stability/117a7a12-7704-4917-9139-4a3f76c42e78.png',
@@ -20,7 +20,7 @@ const initialConversations = [
     messages: [
       {
         id: 1,
-        type: 'customer',
+        type: 'client',
         text: 'Hi, I need help with my recent order',
         timestamp: '2023-12-22T10:30:00Z'
       },
@@ -34,7 +34,7 @@ const initialConversations = [
   },
   {
     id: 2,
-    customer: {
+    client: {
       id: 2,
       name: 'Bob Smith',
       avatar: 'https://cdn.usegalileo.ai/stability/d4e7d763-28f3-4af2-bc57-a26db12c522b.png',
@@ -48,7 +48,7 @@ const initialConversations = [
     messages: [
       {
         id: 1,
-        type: 'customer',
+        type: 'client',
         text: 'I have a question about the product',
         timestamp: '2023-12-22T09:10:00Z'
       },
@@ -60,7 +60,7 @@ const initialConversations = [
       },
       {
         id: 3,
-        type: 'customer',
+        type: 'client',
         text: 'Thanks for your help!',
         timestamp: '2023-12-22T09:15:00Z'
       }
@@ -106,7 +106,7 @@ export function ConversationsPage() {
   };
 
   const filteredConversations = conversations.filter(conv =>
-    conv.customer.name.toLowerCase().includes(searchQuery.toLowerCase())
+    conv.client.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (

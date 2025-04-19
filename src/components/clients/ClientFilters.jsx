@@ -6,7 +6,7 @@ export function CustomerFilters({ filters, onChange }) {
       <div className="flex-1 min-w-[200px]">
         <input
           type="text"
-          placeholder="Search customers..."
+          placeholder="Search clients..."
           value={filters.search}
           onChange={(e) => onChange({ ...filters, search: e.target.value })}
           className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-dark-hover text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-primary/20 focus:border-primary"

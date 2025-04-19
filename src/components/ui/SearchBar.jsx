@@ -6,8 +6,8 @@ export function SearchBar() {
   const [query, setQuery] = useState('');
 
   const searchResults = [
-    { type: 'customer', name: 'Alice Freeman', path: '/customers/1' },
-    { type: 'customer', name: 'Bob Smith', path: '/customers/2' },
+    { type: 'client', name: 'Alice Freeman', path: '/clients/1' },
+    { type: 'client', name: 'Bob Smith', path: '/clients/2' },
     { type: 'product', name: 'Premium Plan', path: '/products/1' },
     { type: 'campaign', name: 'Summer Sale', path: '/campaigns/1' },
   ].filter(item => 
@@ -63,7 +63,7 @@ export function SearchBar() {
                   onClick={() => setIsOpen(false)}
                 >
                   <div className="p-2 rounded-lg bg-gray-100 dark:bg-dark-hover text-gray-500">
-                    {result.type === 'customer' ? (
+                    {result.type === 'client' ? (
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
                         <path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.83,40.31,185.71,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z" />
                       </svg>

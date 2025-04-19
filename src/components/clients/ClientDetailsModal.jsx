@@ -66,8 +66,8 @@ const ActivityLog = () => (
   </div>
 );
 
-export function CustomerDetailsModal({ customer, onClose }) {
-  if (!customer) return null;
+export function CustomerDetailsModal({ client, onClose }) {
+  if (!client) return null;
 
   return (
     <Dialog
@@ -84,15 +84,15 @@ export function CustomerDetailsModal({ customer, onClose }) {
             <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-gray-800">
               <div className="flex items-center gap-4">
                 <img
-                  src={customer.avatar}
-                  alt={customer.name}
+                  src={client.avatar}
+                  alt={client.name}
                   className="w-12 h-12 rounded-full"
                 />
                 <div>
                   <Dialog.Title className="text-lg font-semibold text-gray-900 dark:text-white">
-                    {customer.name}
+                    {client.name}
                   </Dialog.Title>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{customer.email}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{client.email}</p>
                 </div>
               </div>
               <button
@@ -113,21 +113,21 @@ export function CustomerDetailsModal({ customer, onClose }) {
                   label="Status" 
                   value={
                     <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
-                      customer.status === 'active'
+                      client.status === 'active'
                         ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400'
                         : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
                     }`}>
-                      {customer.status}
+                      {client.status}
                     </span>
                   }
                 />
                 <DetailItem 
                   label="Total Spent" 
-                  value={`$${customer.spent.toLocaleString()}`}
+                  value={`$${client.spent.toLocaleString()}`}
                 />
                 <DetailItem 
                   label="Last Order" 
-                  value={format(new Date(customer.lastOrder), 'MMM d, yyyy')}
+                  value={format(new Date(client.lastOrder), 'MMM d, yyyy')}
                 />
                 <DetailItem 
                   label="Customer Since" 

@@ -7,7 +7,7 @@ const initialFormData = {
   name: '',
   type: 'email',
   status: 'scheduled',
-  audience: 'all-customers',
+  audience: 'all-clients',
   startDate: '',
   endDate: '',
   budget: '',
@@ -123,9 +123,9 @@ export function CampaignModal({ isOpen, onClose, onSubmit, campaign }) {
                     onChange={(e) => setFormData({ ...formData, audience: e.target.value })}
                     className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-dark-hover text-gray-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary"
                   >
-                    <option value="all-customers">All Customers</option>
-                    <option value="premium-customers">Premium Customers</option>
-                    <option value="new-customers">New Customers</option>
+                    <option value="all-clients">All Clients</option>
+                    <option value="premium-clients">Premium Clients</option>
+                    <option value="new-clients">New Clients</option>
                   </select>
                 </div>
 

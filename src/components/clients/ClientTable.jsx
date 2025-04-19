@@ -2,7 +2,7 @@ import React from 'react';
 import { format } from 'date-fns';
 import { CustomerDetailsModal } from './CustomerDetailsModal';
 
-export function CustomerTable({ customers }) {
+export function CustomerTable({ clients }) {
   const [selectedCustomer, setSelectedCustomer] = React.useState(null);
 
   return (
@@ -19,44 +19,44 @@ export function CustomerTable({ customers }) {
             </tr>
           </thead>
           <tbody>
-            {customers.map((customer) => (
+            {clients.map((client) => (
               <tr 
-                key={customer.id}
+                key={client.id}
                 className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-dark-hover transition-colors"
               >
                 <td className="py-3 px-4">
                   <div className="flex items-center gap-3">
                     <img
-                      src={customer.avatar}
-                      alt={customer.name}
+                      src={client.avatar}
+                      alt={client.name}
                       className="w-8 h-8 rounded-full"
                     />
                     <div>
-                      <p className="text-sm font-medium text-gray-900 dark:text-white">{customer.name}</p>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">{customer.email}</p>
+                      <p className="text-sm font-medium text-gray-900 dark:text-white">{client.name}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">{client.email}</p>
                     </div>
                   </div>
                 </td>
                 <td className="py-3 px-4">
                   <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
-                    customer.status === 'active'
+                    client.status === 'active'
                       ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400'
                       : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
                   }`}>
-                    {customer.status}
+                    {client.status}
                   </span>
                 </td>
                 <td className="py-3 px-4">
-                  <p className="text-sm text-gray-900 dark:text-white">${customer.spent.toLocaleString()}</p>
+                  <p className="text-sm text-gray-900 dark:text-white">${client.spent.toLocaleString()}</p>
                 </td>
                 <td className="py-3 px-4">
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    {format(new Date(customer.lastOrder), 'MMM d, yyyy')}
+                    {format(new Date(client.lastOrder), 'MMM d, yyyy')}
                   </p>
                 </td>
                 <td className="py-3 px-4 text-right">
                   <button 
-                    onClick={() => setSelectedCustomer(customer)}
+                    onClick={() => setSelectedCustomer(client)}
                     className="text-primary hover:text-primary-light text-sm font-medium"
                   >
                     View Details
@@ -69,7 +69,7 @@ export function CustomerTable({ customers }) {
       </div>
 
       <CustomerDetailsModal
-        customer={selectedCustomer}
+        client={selectedCustomer}
         onClose={() => setSelectedCustomer(null)}
       />
     </>

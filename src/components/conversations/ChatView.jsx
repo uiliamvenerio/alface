@@ -3,7 +3,7 @@ import { format } from 'date-fns';
 import clsx from 'clsx';
 
 function ChatMessage({ message, isConsecutive }) {
-  const isCustomer = message.type === 'customer';
+  const isCustomer = message.type === 'client';
   
   return (
     <div className={clsx(
@@ -55,21 +55,21 @@ export function ChatView({ conversation, onSendMessage }) {
       <div className="flex items-center gap-3 p-4 border-b border-gray-100 dark:border-gray-800">
         <div className="relative">
           <img
-            src={conversation.customer.avatar}
-            alt={conversation.customer.name}
+            src={conversation.client.avatar}
+            alt={conversation.client.name}
             className="w-10 h-10 rounded-full"
           />
           <span className={clsx(
             'absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-white dark:border-dark-card',
-            conversation.customer.status === 'online' ? 'bg-green-500' : 'bg-gray-400'
+            conversation.client.status === 'online' ? 'bg-green-500' : 'bg-gray-400'
           )} />
         </div>
         <div>
           <h2 className="text-base font-medium text-gray-900 dark:text-white">
-            {conversation.customer.name}
+            {conversation.client.name}
           </h2>
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            {conversation.customer.status === 'online' ? 'Online' : 'Offline'}
+            {conversation.client.status === 'online' ? 'Online' : 'Offline'}
           </p>
         </div>
       </div>

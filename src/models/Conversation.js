@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const messageSchema = new mongoose.Schema({
   type: {
     type: String,
-    enum: ['customer', 'agent'],
+    enum: ['client', 'agent'],
     required: true
   },
   text: {
@@ -17,7 +17,7 @@ const messageSchema = new mongoose.Schema({
 });
 
 const conversationSchema = new mongoose.Schema({
-  customer: {
+  client: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Customer',
     required: true

@@ -23,7 +23,7 @@ export function TaskList() {
       <CardContent>
         <div className="space-y-1">
           <Task text="Send welcome email to new subscribers" checked={true} />
-          <Task text="Follow up with customer about return" />
+          <Task text="Follow up with client about return" />
           <Task text="Update product descriptions on website" />
         </div>
       </CardContent>

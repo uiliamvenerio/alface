@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const customerSchema = new mongoose.Schema({
+const clientSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -39,11 +39,11 @@ const customerSchema = new mongoose.Schema({
   }
 });
 
-customerSchema.pre('save', function(next) {
+clientSchema.pre('save', function(next) {
   this.updatedAt = new Date();
   next();
 });
 
-const Customer = mongoose.model('Customer', customerSchema);
+const Customer = mongoose.model('Customer', clientSchema);
 
 export default Customer;
