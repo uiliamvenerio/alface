@@ -3,6 +3,7 @@ import { Card, CardHeader, CardContent } from '../ui/Card';
 import { Button } from '../ui/Button';
 import { RecipesList } from './RecipesList';
 import { RecipeForm } from './RecipeForm';
+import { RecipeDetails } from './RecipeDetails';
 
 const initialRecipes = [
   {
@@ -10,20 +11,67 @@ const initialRecipes = [
     name: 'Salada de Quinoa',
     category: 'Saladas',
     unit: 'porção',
-    createdAt: '2023-12-22T10:30:00Z'
+    createdAt: '2023-12-22T10:30:00Z',
+    recipe_ingredients: [
+      {
+        quantity: 100,
+        unit: 'g',
+        ingredient: {
+          name: 'Quinoa',
+          nutritional_table: 'Valores por 100g'
+        }
+      },
+      {
+        quantity: 50,
+        unit: 'g',
+        ingredient: {
+          name: 'Tomate',
+          nutritional_table: 'Valores por 100g'
+        }
+      }
+    ],
+    preparation_steps: [
+      'Cozinhe a quinoa conforme as instruções da embalagem',
+      'Corte os tomates em cubos',
+      'Misture todos os ingredientes'
+    ]
   },
   {
     id: 2,
     name: 'Smoothie Verde',
     category: 'Bebidas',
     unit: 'ml',
-    createdAt: '2023-12-21T15:45:00Z'
+    createdAt: '2023-12-21T15:45:00Z',
+    recipe_ingredients: [
+      {
+        quantity: 200,
+        unit: 'ml',
+        ingredient: {
+          name: 'Leite de amêndoas',
+          nutritional_table: 'Valores por 100ml'
+        }
+      },
+      {
+        quantity: 100,
+        unit: 'g',
+        ingredient: {
+          name: 'Espinafre',
+          nutritional_table: 'Valores por 100g'
+        }
+      }
+    ],
+    preparation_steps: [
+      'Adicione todos os ingredientes no liquidificador',
+      'Bata até ficar homogêneo',
+      'Sirva imediatamente'
+    ]
   }
 ];
 
 export function RecipesPage() {
   const [recipes, setRecipes] = useState(initialRecipes);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [filters, setFilters] = useState({
     search: '',
@@ -42,6 +90,17 @@ export function RecipesPage() {
 
   const handleDeleteRecipe = (id) => {
     setRecipes(recipes.filter(r => r.id !== id));
+  };
+
+  const handleViewDetails = (recipe) => {
+    setSelectedRecipe(recipe);
+    setIsDetailsOpen(true);
+  };
+
+  const handleEditRecipe = (recipe) => {
+    setSelectedRecipe(recipe);
+    setIsDetailsOpen(false);
+    setIsFormOpen(true);
   };
 
   const filteredRecipes = recipes.filter(recipe => {
@@ -94,10 +153,8 @@ export function RecipesPage() {
             <CardContent>
               <RecipesList
                 recipes={filteredRecipes}
-                onEdit={(recipe) => {
-                  setSelectedRecipe(recipe);
-                  setIsFormOpen(true);
-                }}
+                onView={handleViewDetails}
+                onEdit={handleEditRecipe}
                 onDelete={handleDeleteRecipe}
               />
             </CardContent>
@@ -113,6 +170,17 @@ export function RecipesPage() {
         }}
         onSubmit={selectedRecipe ? handleUpdateRecipe : handleCreateRecipe}
         recipe={selectedRecipe}
+      />
+
+      <RecipeDetails
+        isOpen={isDetailsOpen}
+        onClose={() => {
+          setIsDetailsOpen(false);
+          setSelectedRecipe(null);
+        }}
+        recipe={selectedRecipe}
+        onEdit={handleEditRecipe}
+        onDelete={handleDeleteRecipe}
       />
     </main>
   );
