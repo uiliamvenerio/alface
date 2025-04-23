@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard';
 import { ClientsPage } from './components/clients/ClientsPage';
 import { CampaignsPage } from './components/campaigns/CampaignsPage';
 import { ReportingPage } from './components/reporting/ReportingPage';
+import { RecipesPage } from './components/recipes/RecipesPage';
 import { ProfilePage } from './components/profile/ProfilePage';
 import { SettingsPage } from './components/settings/SettingsPage';
 import { MobileMenu } from './components/ui/MobileMenu';
@@ -44,6 +45,8 @@ export default function App() {
         return <CampaignsPage />;
       case 'reporting':
         return <ReportingPage />;
+      case 'recipes':
+        return <RecipesPage />; 
       case 'profile':
         return <ProfilePage />;
       case 'settings':
